@@ -1,0 +1,19 @@
+{
+  "name": "allyourstuff",
+  "version": "1.0.0",
+  "description": "Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Electron"
+  ],
+  "author": {
+    "name": "Theo Coppola",
+    "url": "https://github.com/tjcoppola234"
+  },
+  "devDependencies": {
+    "electron": "^7.3.3"
+  }
+}
