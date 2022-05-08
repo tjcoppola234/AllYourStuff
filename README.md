@@ -1,2 +1,2 @@
 # AllYourStuff
-An app to catalogue your personal collections
+An app to catalog your personal collections
