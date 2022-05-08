@@ -1,9 +1,9 @@
 {
-  "name": "simple-desktop-app-electronjs",
-  "productName": "simple-desktop-app-electronjs",
+  "name": "allyourstuff",
+  "productName": "allyourstuff",
   "version": "1.0.0",
   "description": "My Electron application description",
-  "main": "src/main.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -32,7 +32,7 @@
         "packageManager": "npm"
       },
       "electronWinstallerConfig": {
-        "name": "simple_desktop_app_electronjs"
+        "name": "allyourstuff"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
@@ -42,7 +42,7 @@
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "simpledesktopappelectronjs"
+        "name": "allyourstuff"
       }
     }
   },
