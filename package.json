@@ -1,6 +1,6 @@
 {
-  "name": "allyourstuff",
-  "productName": "AllYourStuff",
+  "name": "simple-desktop-app-electronjs",
+  "productName": "simple-desktop-app-electronjs",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/main.js",
@@ -11,13 +11,9 @@
     "publish": "electron-forge publish",
     "lint": "eslint src --color"
   },
-  "keywords": [
-    "Electron"
-  ],
-  "author": {
-    "name": "Theo Coppola",
-    "url": "https://github.com/tjcoppola234"
-  },
+  "keywords": [],
+  "author": "tjcsm",
+  "license": "MIT",
   "config": {
     "forge": {
       "make_targets": {
@@ -51,20 +47,19 @@
     }
   },
   "dependencies": {
-    "bootstrap": "^4.6.1",
-    "electron-compile": "^6.4.3",
+    "electron-compile": "^6.4.4",
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "electron-forge": "^5.2.3",
-    "electron-prebuilt-compile": "3.0.10",
+    "electron-forge": "^5.2.4",
+    "electron-prebuilt-compile": "8.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.29.4"
   }
 }
