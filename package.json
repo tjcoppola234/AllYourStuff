@@ -12,7 +12,10 @@
     "lint": "eslint src --color"
   },
   "keywords": [],
-  "author": "tjcsm",
+  "author": {
+    "name": "Theo Coppola",
+    "url": "https://github.com/tjcoppola234"
+  },
   "license": "MIT",
   "config": {
     "forge": {
