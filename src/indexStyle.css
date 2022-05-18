@@ -7,3 +7,7 @@ body{
     color: red;
     text-align: center;
 }
+
+#addItemBox{
+    outline:0.20em solid black;
+}

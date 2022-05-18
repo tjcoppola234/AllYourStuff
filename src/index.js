@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, Timestamp } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -45,7 +45,8 @@ const createWindow = async () => {
 
   const querySnapshot = await getDocs(collection(db, 'Soda'));
   querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.get('name')}`);
+    console.log(`${doc.id} => ${doc.get('dateAdded').toDate()}`);
+    console.log(Timestamp.fromDate(new Date(Date.now())).toDate());
   });
 };
 
