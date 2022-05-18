@@ -1,4 +1,20 @@
 import { app, BrowserWindow } from 'electron';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: 'AIzaSyCuS4xjIe7A5fc-qTPmg8tLEQTcXprpgJE',
+  authDomain: 'allyourstuff-4ecb4.firebaseapp.com',
+  projectId: 'allyourstuff-4ecb4',
+  storageBucket: 'allyourstuff-4ecb4.appspot.com',
+  messagingSenderId: '304483762295',
+  appId: '1:304483762295:web:28f85f4df1a9292f298672',
+};
+// Initialize Firebase
+const fbApp = initializeApp(firebaseConfig);
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(fbApp);
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -9,7 +25,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
-const createWindow = () => {
+const createWindow = async () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
@@ -19,15 +35,17 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
+  });
+
+  const querySnapshot = await getDocs(collection(db, 'Soda'));
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.get('name')}`);
   });
 };
 
@@ -52,6 +70,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
