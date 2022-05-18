@@ -9,25 +9,23 @@
     <title>AllYourStuff</title>
     <link rel="stylesheet" href="indexStyle.css">
   </head>
-  <body>
-      <img id="topLogo"  alt="logo" src="../resources/assets/logo.png"/>
-      <h1 id="theHead">Welcome to AllYourStuff!</h1>
-      <select name="collection" id="collectionSelect">
-          <option style="display: none" disabled selected value> Choose Collection </option>
-          <option value="soda">Soda</option>
-          <option value="misc">Miscellaneous</option>
-      </select>
-      <button type="button" id="Submit" onclick="submitClicked()">Submit</button>
-      <button type="button" id="addItem">Add item</button>
-      <div id="addItemBox">
-          <img src="../resources/assets/logo.png">
-          <img src="../resources/assets/logo.png">
-          <img src="../resources/assets/logo.png">
-      </div>
-      <div id="pics" style="display: none">
-          <img src="../resources/assets/logo.png">
-          <img src="../resources/assets/logo.png">
-      </div>
+  <body class="background">
+    <img id="topLogo" alt="logo" src="../resources/assets/logo.png"/>
+    <h1 id="theHead">Welcome to AllYourStuff!</h1>
+    <select name="collection" id="collectionSelect" onchange="collPicked()">
+        <option style="display: none" disabled selected value=""> Choose Collection </option>
+        <option value="soda">Soda</option>
+        <option value="misc">Miscellaneous</option>
+    </select>
+    <button type="button" id="addItemButton" disabled onclick="document.getElementById('addItemBox').style.display = ''">Add item</button>
+    <div id="addItemBox" style="display: none">
+        <label for="enterName">Enter Name</label>
+        <input type="text" id="enterName">
+        <div id="addButtons">
+            <button type="reset" onclick="hideAddItemBox()">cancel</button>
+        </div>
+    </div>
+    <div id="collectionItems"></div>
   </body>
 </html>
 

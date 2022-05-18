@@ -1,13 +1,43 @@
 #topLogo{
     margin-top: 20px;
 }
+#theHead{
+    color: #ed4848;
+}
 body{
-    background-image: linear-gradient(to bottom right, blue, cornflowerblue);
-    background-color: #ff0026;
-    color: red;
     text-align: center;
+}
+.background{
+    background-image: linear-gradient(to bottom right, skyblue, cornflowerblue);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#collectionSelect{
+    margin-bottom: 20px;
 }
 
 #addItemBox{
     outline:0.20em solid black;
+    margin: auto;
+    max-width: 800px;
+}
+#enterName{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+#addButtons{
+    padding-bottom: 10px;
+}
+
+#collectionItems{
+    border-top: 20px solid transparent;
+    /*outline:0.20em solid black;*/
+    min-width:200px;
+    max-width: 800px;
+    min-height: 340px;
+    max-height: 600px;
+    margin: auto;
 }
