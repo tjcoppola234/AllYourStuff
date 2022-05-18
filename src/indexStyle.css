@@ -1,3 +1,6 @@
+#topLogo{
+    margin-top: 20px;
+}
 body{
     background-image: linear-gradient(to bottom right, blue, cornflowerblue);
     background-color: #ff0026;

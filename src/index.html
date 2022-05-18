@@ -10,9 +10,13 @@
     <link rel="stylesheet" href="indexStyle.css">
   </head>
   <body>
-      <img id="logo"  alt="logo" src="../resources/assets/logo.png"/>
+      <img id="topLogo"  alt="logo" src="../resources/assets/logo.png"/>
       <h1 id="theHead">Welcome to AllYourStuff!</h1>
-      <button type="button" id="sodaCollection" onclick="sodaClicked()">Soda Collection</button>
+      <select name="cars" id="cars">
+          <option style="display: none" disabled selected value> Choose Collection </option>
+          <option value="volvo">Soda</option>
+      </select>
+      <button type="button" id="Submit" onclick="sodaClicked()">Submit</button>
       <div id="pics" style="display: none">
           <img src="../resources/assets/logo.png">
           <img src="../resources/assets/logo.png">
