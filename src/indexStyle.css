@@ -24,11 +24,11 @@ body{
     margin: auto;
     max-width: 800px;
 }
-#enterName{
+#itemName{
     margin-top: 20px;
     margin-bottom: 15px;
 }
-#addButtons{
+#addItemButtons{
     padding-bottom: 10px;
 }
 

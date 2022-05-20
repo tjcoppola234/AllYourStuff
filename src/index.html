@@ -18,15 +18,18 @@
         <option value="misc">Miscellaneous</option>
     </select>
     <button type="button" id="addItemButton" disabled onclick="document.getElementById('addItemBox').style.display = ''">Add item</button>
-    <div id="addItemBox" style="display: none">
-        <label for="enterName">Enter Name</label>
-        <input type="text" id="enterName">
-        <div id="addButtons">
-            <button type="reset" onclick="hideAddItemBox()">cancel</button>
+        <div id="addItemBox" style="display: none">
+            <form id="addItem">
+                <label for="itemName">Enter Name</label>
+                <input type="text" id="itemName" name="itemName">
+                <div id="addItemButtons">
+                    <button type="reset" onclick="hideAddItemBox()">Cancel</button>
+                    <input type="reset">
+                    <button type="button" onclick="addItem()">Submit</button>
+                </div>
+            </form>
         </div>
-    </div>
     <div id="collectionItems"></div>
+    <script src="render.js"></script>
   </body>
 </html>
-
-<script src="render.js"></script>

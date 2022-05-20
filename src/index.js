@@ -1,20 +1,4 @@
 import { app, BrowserWindow } from 'electron';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, Timestamp } from 'firebase/firestore';
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: 'AIzaSyCuS4xjIe7A5fc-qTPmg8tLEQTcXprpgJE',
-  authDomain: 'allyourstuff-4ecb4.firebaseapp.com',
-  projectId: 'allyourstuff-4ecb4',
-  storageBucket: 'allyourstuff-4ecb4.appspot.com',
-  messagingSenderId: '304483762295',
-  appId: '1:304483762295:web:28f85f4df1a9292f298672',
-};
-// Initialize Firebase
-const fbApp = initializeApp(firebaseConfig);
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(fbApp);
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -43,11 +27,11 @@ const createWindow = async () => {
     mainWindow = null;
   });
 
-  const querySnapshot = await getDocs(collection(db, 'Soda'));
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.get('dateAdded').toDate()}`);
-    console.log(Timestamp.fromDate(new Date(Date.now())).toDate());
-  });
+  // const querySnapshot = await getDocs(collection(db, 'Soda'));
+  // querySnapshot.forEach((doc) => {
+  //   console.log(`${doc.id} => ${doc.get('dateAdded').toDate()}`);
+  //   console.log(Timestamp.fromDate(new Date(Date.now())).toDate());
+  // });
 };
 
 // This method will be called when Electron has finished
