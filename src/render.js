@@ -1,7 +1,7 @@
 // Your web app's Firebase configuration
 // Initialize Firebase
-import { initializeApp } from 'firebase/app';
 import { getFirestore, addDoc, Timestamp, collection } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCuS4xjIe7A5fc-qTPmg8tLEQTcXprpgJE',
