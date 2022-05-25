@@ -9,19 +9,27 @@
     <title>AllYourStuff</title>
     <link rel="stylesheet" href="indexStyle.css">
   </head>
-  <body>
-      <img id="topLogo"  alt="logo" src="../resources/assets/logo.png"/>
-      <h1 id="theHead">Welcome to AllYourStuff!</h1>
-      <select name="cars" id="cars">
-          <option style="display: none" disabled selected value> Choose Collection </option>
-          <option value="volvo">Soda</option>
-      </select>
-      <button type="button" id="Submit" onclick="sodaClicked()">Submit</button>
-      <div id="pics" style="display: none">
-          <img src="../resources/assets/logo.png">
-          <img src="../resources/assets/logo.png">
-      </div>
+  <body class="background">
+    <img id="topLogo" alt="logo" src="../resources/assets/logo.png"/>
+    <h1 id="theHead">Welcome to AllYourStuff!</h1>
+    <select name="collection" id="collectionSelect" onchange="collPicked()">
+        <option style="display: none" disabled selected value=""> Choose Collection </option>
+        <option value="Soda">Soda</option>
+        <option value="Misc">Miscellaneous</option>
+    </select>
+    <button type="button" id="addItemButton" disabled onclick="document.getElementById('addItemBox').style.display = ''">Add item</button>
+        <div id="addItemBox" style="display: none">
+            <form id="addItem">
+                <label for="itemName">Enter Name</label>
+                <input type="text" id="itemName" name="itemName">
+                <div id="addItemButtons">
+                    <button type="reset" onclick="hideAddItemBox()">Cancel</button>
+                    <input type="reset">
+                    <button type="button" onclick="addItem()">Submit</button>
+                </div>
+            </form>
+        </div>
+    <div id="collectionItems"></div>
+    <script src="render.js"></script>
   </body>
 </html>
-
-<script src="render.js"></script>
