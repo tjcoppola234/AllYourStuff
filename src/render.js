@@ -1,6 +1,6 @@
 // Your web app's Firebase configuration
 // Initialize Firebase
-import { getFirestore, addDoc, Timestamp, collection } from 'firebase/firestore';
+import { getFirestore, getDocs, addDoc, Timestamp, collection } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
@@ -24,32 +24,44 @@ function hideAddItemBox() {
 /**
  * Show items in collection when that collection is selected
  */
-function collPicked() {
+async function collPicked() {
   hideAddItemBox();
   document.getElementById('collectionItems').innerHTML = '';
-  if (document.getElementById('collectionSelect').value === 'soda') {
-    document.getElementById('collectionItems').innerHTML +=
-        `<img src="../resources/assets/logo.png">
-         <img src="../resources/assets/logo.png">`;
+  if (document.getElementById('collectionSelect').value === 'Soda') {
+    console.log('inFunciton');
+    const receivedDocs = await getDocs(collection(fbDB, 'Soda'));
+    receivedDocs.forEach((recDoc) => {
+      document.getElementById('collectionItems').innerHTML +=
+          `<div>
+           ${recDoc.get('name')}: Added on ${recDoc.get('dateAdded').toDate()}
+           </div>`;
+      console.log('recieved a doc');
+    });
+    // document.getElementById('collectionItems').innerHTML +=
+    //     `<img src="../resources/assets/logo.png">
+    //      <img src="../resources/assets/logo.png">`;
   }
   document.getElementById('addItemButton').removeAttribute('disabled');
 }
 
 async function addItem() {
-  // console.log('hello');
-  // const addItemForm = document.getElementById('addItem');
-  // let allFieldsFull = true;
-  // for (const element in addItemForm.elements) {
-  //   if (element == null || element === '') {
-  //     allFieldsFull = false;
-  //   }
-  // }// document.getElementById('collectionSelect').value
-  // if (allFieldsFull) {
-  await addDoc(collection(fbDB, 'Soda'), {
-    name: 'sup',
-    dateAdded: Timestamp.fromDate(new Date(Date.now())).toDate(),
-  }).catch(() => {
-    console.log('big err my guy');
-  });
-  // }
+  console.log('hello');
+  const addItemForm = document.getElementById('addItem');
+  let allFieldsFull = true;
+  for (const element of addItemForm.elements) {
+    console.log(element);
+    if (element.type !== 'button' && element.type !== 'reset' && element.value === '') {
+      allFieldsFull = false;
+    }
+    console.log(allFieldsFull);
+  }
+  if (allFieldsFull) {
+    const addedDoc = await addDoc(collection(fbDB, document.getElementById('collectionSelect').value), {
+      name: addItemForm.elements.itemName.value,
+      dateAdded: Timestamp.fromDate(new Date(Date.now())).toDate(),
+    });
+    console.log(`Document added: ${addedDoc.id}`);
+  } else {
+    console.log('all fields not filled');
+  }
 }
